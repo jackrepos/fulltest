@@ -23,11 +23,83 @@ npm run dev
 ```sh
 npm run build
 
-# To force push dist
-git add dist -f
-# To update dist
-git subtree push --prefix dist origin gh-pages
+# To deploy on github. If there is a custom domain added to github then you need to download the CNAME file that github automatically create and push in the branch into /dist
+npm run deploy
 ```
+
+### Guide to deploy on github pages
+
+To deploy your Vite app to GitHub Pages, follow these steps:
+
+1. Make sure you have the `gh-pages` branch in your repository.
+
+2. Add a `deploy` script to your `package.json`:
+
+In your `package.json`, add the following script:
+
+```json
+"scripts": {
+  "deploy": "gh-pages -d dist",
+  ...
+}
+```
+
+This script will use the `gh-pages` CLI to deploy the `dist` directory to your `gh-pages` branch.
+
+3. Build your Vite app for production:
+
+Run the following command in your terminal:
+
+```
+npm run build
+```
+
+This command will build your Vite app for production and create a `dist` folder with the optimized output.
+
+4. Install the `gh-pages` CLI:
+
+If you haven't already installed the `gh-pages` CLI, install it as a development dependency:
+
+```
+npm install gh-pages --save-dev
+```
+
+5. Configure the `publicPath` for your Vite app:
+
+In your `vite.config.js` file, set the `publicPath` to the correct path for your GitHub Pages repository. Replace `your-repo-name` with the name of your GitHub repository:
+
+```javascript
+// vite.config.js
+export default {
+  build: {
+    publicPath: '/your-repo-name/',
+  },
+}
+```
+
+If you don't have a `vite.config.js` file, create one at the root of your project and add the above content.
+
+6. Deploy your Vite app to GitHub Pages:
+
+Run the following command in your terminal:
+
+```
+npm run deploy
+```
+
+This command will deploy your Vite app to the `gh-pages` branch of your GitHub repository.
+
+7. Configure your GitHub repository to use the `gh-pages` branch:
+
+Go to your GitHub repository's settings page, scroll down to the "GitHub Pages" section, and select the `gh-pages` branch as the source. Save the changes.
+
+8. Access your Vite app on GitHub Pages:
+
+Your Vite app will be available at `https://<your-github-username>.github.io/your-repo-name/`, where you should replace `<your-github-username>` with your GitHub username and `your-repo-name` with the name of your GitHub repository.
+
+Note: It might take a few minutes for your GitHub Pages site to become available after deployment.
+
+### Other docs
 
 ```
 ## Recommended IDE Setup
