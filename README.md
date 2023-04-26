@@ -22,6 +22,11 @@ npm run dev
 
 ```sh
 npm run build
+
+# To force push dist
+git add dist -f
+# To update dist
+git subtree push --prefix dist origin gh-pages
 ```
 
 ```
