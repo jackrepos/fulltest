@@ -27,6 +27,10 @@ npm run build
 npm run deploy
 ```
 
+### Errors
+
+If you have this error in vscode `Option 'importsNotUsedAsValues' is deprecated and will stop functioning in TypeScript 5.5`. Then you need to change the typescript version that your vscode is using. Go to a .ts file in the project, in vscode, at the bottom there is a `{}` just before `typescript`. Click it and choose the version for typescript.
+
 ### Guide to deploy on github pages
 
 To deploy your Vite app to GitHub Pages, follow these steps:
