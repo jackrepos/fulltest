@@ -33,6 +33,16 @@ If you have this error in vscode `Option 'importsNotUsedAsValues' is deprecated 
 
 ### Guide to deploy on github pages
 
+To deploy-update an existing page with domain.
+
+```
+npm run build
+create CNAME with correct repo url
+npm run deploy
+
+every time you build, the CNAME will be erased, so recreate it before each deploy
+```
+
 To deploy your Vite app to GitHub Pages, follow these steps:
 
 1. Make sure you have the `gh-pages` branch in your repository.
